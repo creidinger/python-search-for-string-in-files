@@ -19,13 +19,13 @@ def check_exit(str):
 
     exit_reg = re.compile(r'exit(.){3}', re.IGNORECASE)
     try:
-        mo = exit_reg.search(str)
+        m = exit_reg.search(str)
     except Exception as e:
         print("check_exit: failed...")
         print(f"check_exit: {e}")
         sys.exit()
     else:
-        if mo:
+        if m:
             print(f"check_exit: exiting!")
             sys.exit()
         else:
@@ -51,14 +51,14 @@ def search_txt_files():
             print(f'search_txt_files: scanning... {os.path.join(path, i)}')
             with open(os.path.join(path, i), 'r') as f:
                 try:
-                    mo = input_reg.findall(f.read())
+                    m = input_reg.findall(f.read())
                 except Exception as e:
                     print("search_txt_files: failed...")
                     print(f"search_txt_files: {e}\n")
                 else:
-                    if mo:
+                    if m:
                         print(f"search_txt_files: matches found!")
-                        print(f"search_txt_files: {mo}\n")
+                        print(f"search_txt_files: {m}\n")
                     else:
                         print("search_txt_files: No matches found...\n")
 
